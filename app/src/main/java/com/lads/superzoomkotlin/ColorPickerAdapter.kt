@@ -1,17 +1,12 @@
-package com.burhanrashid52.photoediting
+package com.lads.superzoomkotlin
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
 import androidx.core.content.ContextCompat
-import com.lads.superzoomkotlin.R
-import java.util.ArrayList
+import androidx.recyclerview.widget.RecyclerView
 
-/**
- * Created by Ahmed Adel on 5/8/17.
- */
 class ColorPickerAdapter internal constructor(
     private var context: Context,
     colorPickerColors: List<Int>

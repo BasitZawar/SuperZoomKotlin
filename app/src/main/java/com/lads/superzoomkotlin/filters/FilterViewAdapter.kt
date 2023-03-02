@@ -10,17 +10,10 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.burhanrashid52.photoediting.filters.FilterListener
 import com.lads.superzoomkotlin.R
 import ja.burhanrashid52.photoeditor.PhotoFilter
 import java.io.IOException
-import java.util.ArrayList
 
-/**
- * @author [Burhanuddin Rashid](https://github.com/burhanrashid52)
- * @version 0.1.2
- * @since 5/23/2018
- */
 class FilterViewAdapter(private val mFilterListener: FilterListener) :
     RecyclerView.Adapter<FilterViewAdapter.ViewHolder>() {
     private val mPairList: MutableList<Pair<String, PhotoFilter>> = ArrayList()
@@ -46,7 +39,7 @@ class FilterViewAdapter(private val mFilterListener: FilterListener) :
         val mTxtFilterName: TextView = itemView.findViewById(R.id.txtFilterName)
 
         init {
-            itemView.setOnClickListener{
+            itemView.setOnClickListener {
                 mFilterListener.onFilterSelected(
                     mPairList[layoutPosition].second
                 )

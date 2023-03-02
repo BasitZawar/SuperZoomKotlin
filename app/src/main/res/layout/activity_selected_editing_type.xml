@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".activities.SelectedEditingType">
+    <ImageView
+        android:id="@+id/resolution"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:background="@color/semi_black_transparent"
+        android:padding="8dp"
+        android:src="@drawable/ic_gallery"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/selectedImgFromGallery"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Resolution"
+        app:layout_constraintStart_toStartOf="@+id/resolution"
+        app:layout_constraintEnd_toEndOf="@+id/resolution"
+        app:layout_constraintTop_toBottomOf="@+id/resolution"
+        />
+
+    <ImageView
+        android:id="@+id/selectedImgFromGallery"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:background="@color/semi_black_transparent"
+        android:padding="8dp"
+        android:src="@drawable/ic_gallery"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resolution"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Image Editing"
+        app:layout_constraintStart_toStartOf="@+id/selectedImgFromGallery"
+        app:layout_constraintEnd_toEndOf="@+id/selectedImgFromGallery"
+        app:layout_constraintTop_toBottomOf="@+id/selectedImgFromGallery"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

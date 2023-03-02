@@ -2,8 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.lads.superzoomkotlin">
-
-<!--    <uses-permission android:name="android.permission.CAMERA" />-->
+    <!-- <uses-permission android:name="android.permission.CAMERA" /> -->
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="28" />
@@ -20,7 +19,13 @@
         android:theme="@style/Theme.SuperZoomKotlin"
         tools:targetApi="31">
         <activity
-            android:name=".splash.LuncherActivity"
+            android:name=".activities.ImageResolution"
+            android:exported="false" />
+        <activity
+            android:name=".activities.SelectedEditingType"
+            android:exported="false" />
+        <activity
+            android:name=".activities.LuncherActivity"
             android:exported="true"
             tools:ignore="MissingClass">
             <intent-filter>
@@ -29,15 +34,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
-            <!--            <intent-filter>-->
-            <!--                <action android:name="android.intent.action.MAIN" />-->
+        <activity android:name=".activities.MainActivity">
 
-            <!--                <category android:name="android.intent.category.LAUNCHER" />-->
-            <!--            </intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
-
-        <activity android:name=".EditImageActivity"></activity>
+        <activity android:name=".EditImageActivity" />
     </application>
 
 </manifest>

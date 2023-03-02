@@ -25,15 +25,13 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.transition.ChangeBounds
 import androidx.transition.TransitionManager
-import com.burhanrashid52.photoediting.FileSaveHelper
 import com.burhanrashid52.photoediting.base.BaseActivity
-import com.burhanrashid52.photoediting.filters.FilterListener
-import com.burhanrashid52.photoediting.tools.ToolType
+import com.lads.superzoomkotlin.filters.FilterListener
+import com.lads.superzoomkotlin.tools.ToolType
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.lads.superzoomkotlin.StickerBSFragment.StickerListener
 import com.lads.superzoomkotlin.filters.FilterViewAdapter
@@ -52,7 +50,6 @@ class EditImageActivity : BaseActivity(), OnPhotoEditorListener, View.OnClickLis
 
     lateinit var mPhotoEditor: PhotoEditor
     private lateinit var mPhotoEditorView: PhotoEditorView
-    private lateinit var photoEditorView2: ImageView
     private lateinit var mPropertiesBSFragment: PropertiesBSFragment
     private lateinit var mShapeBSFragment: ShapeBSFragment
     private lateinit var mShapeBuilder: ShapeBuilder
@@ -67,6 +64,7 @@ class EditImageActivity : BaseActivity(), OnPhotoEditorListener, View.OnClickLis
     private lateinit var mRootView: ConstraintLayout
     private val mConstraintSet = ConstraintSet()
     private var mIsFilterVisible = false
+    private var bitmap:Bitmap? = null
 
     @VisibleForTesting
     var mSaveImageUri: Uri? = null
@@ -79,7 +77,7 @@ class EditImageActivity : BaseActivity(), OnPhotoEditorListener, View.OnClickLis
         setContentView(R.layout.activity_edit_image)
 
         var uri = intent.getStringExtra("pickedImage")
-        val bitmap = intent.getParcelableExtra<Bitmap>("capturedImage")
+        bitmap = intent.getParcelableExtra<Bitmap>("capturedImage")
 
         Log.d(TAG, "onCreate: Edit$bitmap")
 
@@ -127,7 +125,6 @@ class EditImageActivity : BaseActivity(), OnPhotoEditorListener, View.OnClickLis
 
         if (uri != null) {
             try {
-                photoEditorView2.isVisible = false
 
                 mPhotoEditor.clearAllViews()
                 val bitmap = MediaStore.Images.Media.getBitmap(
@@ -179,7 +176,6 @@ class EditImageActivity : BaseActivity(), OnPhotoEditorListener, View.OnClickLis
         mRvTools = findViewById(R.id.rvConstraintTools)
         mRvFilters = findViewById(R.id.rvFilterView)
         mRootView = findViewById(R.id.rootView)
-        photoEditorView2 = findViewById(R.id.photoEditorView2)
 
         val imgUndo: ImageView = findViewById(R.id.imgUndo)
         imgUndo.setOnClickListener(this)
@@ -448,7 +444,7 @@ class EditImageActivity : BaseActivity(), OnPhotoEditorListener, View.OnClickLis
                 mTxtCurrentTool.setText(R.string.label_filter)
                 showFilter(true)
             }
-            ToolType.EMOJI -> showBottomSheetDialogFragment(mEmojiBSFragment)
+//            ToolType.EMOJI -> showBottomSheetDialogFragment(mEmojiBSFragment)
             ToolType.STICKER -> showBottomSheetDialogFragment(mStickerBSFragment)
         }
     }

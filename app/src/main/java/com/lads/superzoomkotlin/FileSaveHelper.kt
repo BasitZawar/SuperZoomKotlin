@@ -1,4 +1,4 @@
-package com.burhanrashid52.photoediting
+package com.lads.superzoomkotlin
 
 import android.annotation.SuppressLint
 import android.content.ContentResolver

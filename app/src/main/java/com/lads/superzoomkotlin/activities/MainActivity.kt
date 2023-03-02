@@ -1,4 +1,4 @@
-package com.lads.superzoomkotlin
+package com.lads.superzoomkotlin.activities
 
 import android.content.Intent
 import android.graphics.Bitmap
@@ -9,6 +9,8 @@ import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import com.lads.superzoomkotlin.EditImageActivity
+import com.lads.superzoomkotlin.R
 import ja.burhanrashid52.photoeditor.PhotoEditor
 import ja.burhanrashid52.photoeditor.PhotoEditorView
 
@@ -16,14 +18,11 @@ import ja.burhanrashid52.photoeditor.PhotoEditorView
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     private var uri: Uri? = null
     var mPhotoEditor: PhotoEditor? = null
-
     private var mPhotoEditorView: PhotoEditorView? = null
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
 
         val imgCamera: ImageView = findViewById(R.id.imgCamera)
         imgCamera.setOnClickListener(this)
@@ -52,22 +51,27 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == EditImageActivity.PICK_REQUEST && resultCode == RESULT_OK) {
+        if (requestCode == PICK_REQUEST && resultCode == RESULT_OK) {
             uri = data?.data
             Log.d("SAAAAA", "onCreate imageUri::${uri.toString()}")
 
-            val intent = Intent(this, EditImageActivity::class.java)
+            val intent = Intent(this, SelectedEditingType::class.java)
                 .putExtra("pickedImage", uri.toString())
             startActivity(intent)
-        } else if (requestCode == EditImageActivity.CAMERA_REQUEST) {
+        } else if (requestCode == CAMERA_REQUEST) {
             val photo = data?.extras?.get("data") as Bitmap?
             Log.d("SBBBBB", "onCreate image::${photo.toString()}")
 
-            val intent = Intent(this, EditImageActivity::class.java)
+            val intent = Intent(this, SelectedEditingType::class.java)
                 .putExtra("capturedImage", photo)
             startActivity(intent)
 //            mPhotoEditorView?.source?.setImageBitmap(photo)
         }
+    }
+
+    companion object {
+        const val CAMERA_REQUEST = 52
+        const val PICK_REQUEST = 53
     }
 
 }

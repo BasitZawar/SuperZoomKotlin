@@ -1,10 +1,9 @@
-package com.lads.superzoomkotlin.splash
+package com.lads.superzoomkotlin.activities
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import com.lads.superzoomkotlin.MainActivity
 import com.lads.superzoomkotlin.R
 
 class LuncherActivity : AppCompatActivity() {

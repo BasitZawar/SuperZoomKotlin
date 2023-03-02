@@ -1,4 +1,4 @@
-package com.burhanrashid52.photoediting.filters
+package com.lads.superzoomkotlin.filters
 
 import ja.burhanrashid52.photoeditor.PhotoFilter
 
