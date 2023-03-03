@@ -125,7 +125,6 @@ class EditImageActivity : BaseActivity(), OnPhotoEditorListener, View.OnClickLis
 
         if (uri != null) {
             try {
-
                 mPhotoEditor.clearAllViews()
                 val bitmap = MediaStore.Images.Media.getBitmap(
                     contentResolver, Uri.parse(uri)
@@ -135,9 +134,6 @@ class EditImageActivity : BaseActivity(), OnPhotoEditorListener, View.OnClickLis
                 e.printStackTrace()
             }
         } else {
-//            val bitmap = MediaStore.Images.Media.getBitmap(
-//                contentResolver, Uri.parse(bitmap.toString())
-//            )
             Log.d(TAG, "onCreate123: $bitmap")
             mPhotoEditorView.source.setImageBitmap(bitmap)
         }
@@ -500,9 +496,7 @@ class EditImageActivity : BaseActivity(), OnPhotoEditorListener, View.OnClickLis
     }
 
     companion object {
-
         const val TAG = "EditImageActivity"
-
         const val FILE_PROVIDER_AUTHORITY = "com.burhanrashid52.photoediting.fileprovider"
         const val CAMERA_REQUEST = 52
         const val PICK_REQUEST = 53
@@ -513,6 +507,4 @@ class EditImageActivity : BaseActivity(), OnPhotoEditorListener, View.OnClickLis
     override fun onEmojiClick(emojiUnicode: String?) {
         TODO("Not yet implemented")
     }
-
-
 }

@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.lads.superzoomkotlin.EditImageActivity
 import java.io.IOException
 
-
 class SelectedEditingType : AppCompatActivity() {
     private var bitmap: Bitmap? = null
     private var imgView: ImageView? = null
@@ -34,8 +33,6 @@ class SelectedEditingType : AppCompatActivity() {
                 .putExtra("pickedImage", uri).putExtra("capturedImage", bitmap)
             startActivityForResult(intent, EditImageActivity.CAMERA_REQUEST)
         }
-        // 7685 pending bill
-        //
 
 
         selectedImgFromGallery?.setOnClickListener {
@@ -46,7 +43,6 @@ class SelectedEditingType : AppCompatActivity() {
 
         Log.d(TAG, "onCreate:1214 $uri")
         Log.d(TAG, "onCreate:1215 $bitmap")
-
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
