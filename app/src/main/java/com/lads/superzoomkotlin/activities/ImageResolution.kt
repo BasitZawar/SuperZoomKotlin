@@ -6,18 +6,24 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
+import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.jsibbold.zoomage.ZoomageView
 import com.lads.superzoomkotlin.EditImageActivity
 import com.lads.superzoomkotlin.R
-import ja.burhanrashid52.photoeditor.PhotoEditorView
 import java.io.IOException
 
-class ImageResolution : AppCompatActivity() {
-    private var bitmap: Bitmap? = null
 
-    private lateinit var imgResolution: PhotoEditorView
+class ImageResolution : AppCompatActivity(), View.OnClickListener {
+    private var bitmap: Bitmap? = null
+    private lateinit var imgResolution: ZoomageView
+    private var optionsView: View? = null
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_image_resolution)
 
         imgResolution = findViewById(R.id.imgResolution)
@@ -32,13 +38,28 @@ class ImageResolution : AppCompatActivity() {
                 val bitmap = MediaStore.Images.Media.getBitmap(
                     contentResolver, Uri.parse(uri)
                 )
-                imgResolution.source.setImageBitmap(bitmap)
+                //for PhotoEditorView
+//                imgResolution.source.setImageBitmap(bitmap)
+                //for imageView
+                imgResolution.setImageBitmap(bitmap)
             } catch (e: IOException) {
                 e.printStackTrace()
             }
         } else {
             Log.d(EditImageActivity.TAG, "onCreate123: $bitmap")
-            imgResolution.source.setImageBitmap(bitmap)
+            // for PhotoEditorView
+//            imgResolution.source.setImageBitmap(bitmap)
+            // for imageView
+            imgResolution.setImageBitmap(bitmap)
+        }
+
+        imgResolution.setOnClickListener {
         }
     }
+
+    override fun onClick(p0: View?) {
+
+        Toast.makeText(this, "click", Toast.LENGTH_SHORT).show()
+    }
+
 }

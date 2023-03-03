@@ -34,7 +34,6 @@ class SelectedEditingType : AppCompatActivity() {
             startActivityForResult(intent, EditImageActivity.CAMERA_REQUEST)
         }
 
-
         selectedImgFromGallery?.setOnClickListener {
             val intent = Intent(this, EditImageActivity::class.java)
                 .putExtra("pickedImage", uri).putExtra("capturedImage", bitmap)

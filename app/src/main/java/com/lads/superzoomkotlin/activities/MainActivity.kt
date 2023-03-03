@@ -62,6 +62,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
+
     companion object {
         const val CAMERA_REQUEST = 52
         const val PICK_REQUEST = 53

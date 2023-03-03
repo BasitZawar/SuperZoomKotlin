@@ -7,15 +7,43 @@
     tools:context=".activities.ImageResolution">
 
 
-
-    <ja.burhanrashid52.photoeditor.PhotoEditorView
+    <!--    <ja.burhanrashid52.photoeditor.PhotoEditorView-->
+    <!--        android:id="@+id/imgResolution"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        android:visibility="visible"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        app:photo_src="@drawable/blank_image" />-->
+    <com.jsibbold.zoomage.ZoomageView
         android:id="@+id/imgResolution"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="visible"
-        app:layout_constraintStart_toStartOf="parent"
+        app:zoomage_restrictBounds="true"
+        app:zoomage_animateOnReset="true"
+        app:zoomage_autoResetMode="UNDER"
+        app:zoomage_autoCenter="true"
+        app:zoomage_zoomable="true"
+        app:zoomage_translatable="true"
+        app:zoomage_minScale="0.6"
+        app:zoomage_maxScale="8"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:photo_src="@drawable/blank_image" />
+        />
+
+
+<!--    <com.jsibbold.zoomage.ZoomageView-->
+<!--        android:id="@+id/imgResolution"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:visibility="visible"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:photo_src="@drawable/blank_image" />-->
 </androidx.constraintlayout.widget.ConstraintLayout>
