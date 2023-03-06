@@ -9,6 +9,7 @@ import android.util.Log
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.lads.superzoomkotlin.EditImageActivity
+import com.lads.superzoomkotlin.R
 import java.io.IOException
 
 class SelectedEditingType : AppCompatActivity() {
@@ -16,6 +17,8 @@ class SelectedEditingType : AppCompatActivity() {
     private var imgView: ImageView? = null
     private var resolution: ImageView? = null
     private var selectedImgFromGallery: ImageView? = null
+    private lateinit var btnArrowBack: ImageView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +27,12 @@ class SelectedEditingType : AppCompatActivity() {
         imgView = findViewById(com.lads.superzoomkotlin.R.id.selectedImgFromGallery)
         resolution = findViewById(com.lads.superzoomkotlin.R.id.resolution)
         selectedImgFromGallery = findViewById(com.lads.superzoomkotlin.R.id.selectedImgFromGallery)
+        btnArrowBack = findViewById(R.id.btnArrowBack)
+
+        btnArrowBack.setOnClickListener {
+            finish()
+        }
+
 
         var uri = intent.getStringExtra("pickedImage")
         bitmap = intent.getParcelableExtra<Bitmap>("capturedImage")

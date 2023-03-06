@@ -1,35 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.MainActivity">
 
-    <ImageView
-        android:id="@+id/imgCamera"
-        android:layout_width="@dimen/top_tool_icon_width"
+    <LinearLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/semi_black_transparent"
-        android:padding="8dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/txtSplash"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingVertical="20dp"
+            android:singleLine="true"
+            android:text="Upload Image"
+            android:textColor="@android:color/black"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/splashIcon"
+            app:layout_constraintStart_toStartOf="@id/splashIcon"
+            app:layout_constraintTop_toBottomOf="@+id/splashIcon" />
+    </LinearLayout>
+
+
+    <ImageButton
+        android:layout_below="@id/appbar"
+        android:id="@+id/imgCamera"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/bg_upload_shape"
         android:src="@drawable/ic_camera"
         app:layout_constraintBottom_toTopOf="@+id/imgGallery"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/appbar" />
 
-    <ImageView
-        android:id="@+id/imgGallery"
-        android:layout_width="@dimen/top_tool_icon_width"
+    <TextView
+        android:id="@+id/tv_camera"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/semi_black_transparent"
-        android:padding="8dp"
+        android:layout_below="@id/imgCamera"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="Camera"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+
+    <ImageButton
+        android:id="@+id/imgGallery"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_below="@id/tv_camera"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/bg_uploadgallery_shape"
         android:src="@drawable/ic_gallery"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgCamera" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imgGallery"
+        android:layout_centerHorizontal="true"
+        android:textSize="20dp"
+        android:textStyle="bold"
+
+        android:layout_marginTop="16dp"
+        android:text="Upload from Gallery"/>
 
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

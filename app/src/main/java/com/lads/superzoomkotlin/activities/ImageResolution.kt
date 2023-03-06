@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
 import android.view.View
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.jsibbold.zoomage.ZoomageView
@@ -27,6 +28,10 @@ class ImageResolution : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.activity_image_resolution)
 
         imgResolution = findViewById(R.id.imgResolution)
+//        Glide.with(this).load(R.drawable.ic_launcher_background).into(imgResolution)
+
+
+
         var uri = intent.getStringExtra("pickedImage")
         bitmap = intent.getParcelableExtra<Bitmap>("capturedImage")
 

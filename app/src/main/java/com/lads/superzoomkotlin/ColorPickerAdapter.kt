@@ -87,6 +87,8 @@ class ColorPickerAdapter internal constructor(
         }
     }
 
+    //01070221000871000=5745/2
+//01060221000871000=4863/2
     init {
         inflater = LayoutInflater.from(context)
         this.colorPickerColors = colorPickerColors

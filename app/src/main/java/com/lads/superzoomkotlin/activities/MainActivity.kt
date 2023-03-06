@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
 import android.view.View
+import android.widget.ImageButton
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.lads.superzoomkotlin.EditImageActivity
@@ -20,10 +21,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val imgCamera: ImageView = findViewById(R.id.imgCamera)
+        val imgCamera: ImageButton = findViewById(R.id.imgCamera)
         imgCamera.setOnClickListener(this)
 
-        val imgGallery: ImageView = findViewById(R.id.imgGallery)
+        val imgGallery: ImageButton = findViewById(R.id.imgGallery)
         imgGallery.setOnClickListener(this)
     }
 

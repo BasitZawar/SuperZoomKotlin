@@ -1,50 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".activities.MainActivity">
 
-    tools:context=".activities.SelectedEditingType">
+    <LinearLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/btnArrowBack"
+            android:layout_width="50dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="20dp"
+            android:src="@drawable/ic_arrow_back" />
+    </LinearLayout>
+
+
     <ImageView
         android:id="@+id/resolution"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:background="@color/semi_black_transparent"
-        android:padding="8dp"
-        android:src="@drawable/ic_gallery"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_below="@id/appbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/bg_upload_shape"
+        android:padding="30dp"
+        android:src="@drawable/ic_resolution"
+        app:layout_constraintBottom_toTopOf="@+id/tv_resolution"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/selectedImgFromGallery"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@+id/appbar" />
+
     <TextView
+        android:id="@+id/tv_resolution"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/resolution"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
         android:text="Resolution"
-        app:layout_constraintStart_toStartOf="@+id/resolution"
-        app:layout_constraintEnd_toEndOf="@+id/resolution"
-        app:layout_constraintTop_toBottomOf="@+id/resolution"
-        />
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
 
     <ImageView
         android:id="@+id/selectedImgFromGallery"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:background="@color/semi_black_transparent"
-        android:padding="8dp"
-        android:src="@drawable/ic_gallery"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_below="@id/tv_resolution"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/bg_uploadgallery_shape"
+        android:gravity="center"
+        android:padding="30dp"
+        android:src="@drawable/ic_image_editing"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resolution"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/resolution" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/selectedImgFromGallery"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
         android:text="Image Editing"
-        app:layout_constraintStart_toStartOf="@+id/selectedImgFromGallery"
-        app:layout_constraintEnd_toEndOf="@+id/selectedImgFromGallery"
-        app:layout_constraintTop_toBottomOf="@+id/selectedImgFromGallery"
-        />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:textSize="20dp"
+        android:textStyle="bold" />
+</RelativeLayout>
