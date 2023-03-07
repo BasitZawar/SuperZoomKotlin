@@ -12,14 +12,14 @@ class LuncherActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_luncher)
+
         button = findViewById(R.id.btnGetStarted)
-
-
         button?.setOnClickListener {
             val intent = Intent(
                 this, MainActivity::class.java
             )
             startActivity(intent)
+            finish()
         }
     }
 }

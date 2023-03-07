@@ -19,7 +19,7 @@ import java.io.IOException
 class ImageResolution : AppCompatActivity(), View.OnClickListener {
     private var bitmap: Bitmap? = null
     private lateinit var imgResolution: ZoomageView
-    private var optionsView: View? = null
+    private var imgArrowBack: ImageView? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,8 +28,12 @@ class ImageResolution : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.activity_image_resolution)
 
         imgResolution = findViewById(R.id.imgResolution)
-//        Glide.with(this).load(R.drawable.ic_launcher_background).into(imgResolution)
+        imgArrowBack = findViewById(R.id.imgArrowBack)
 
+        imgArrowBack!!.setOnClickListener {
+            finish()
+        }
+//        Glide.with(this).load(R.drawable.ic_launcher_background).into(imgResolution)
 
 
         var uri = intent.getStringExtra("pickedImage")

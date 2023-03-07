@@ -25,21 +25,23 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.transition.ChangeBounds
 import androidx.transition.TransitionManager
 import com.burhanrashid52.photoediting.base.BaseActivity
-import com.lads.superzoomkotlin.filters.FilterListener
-import com.lads.superzoomkotlin.tools.ToolType
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.lads.superzoomkotlin.StickerBSFragment.StickerListener
+import com.lads.superzoomkotlin.filters.FilterListener
 import com.lads.superzoomkotlin.filters.FilterViewAdapter
 import com.lads.superzoomkotlin.tools.EditingToolsAdapter
 import com.lads.superzoomkotlin.tools.EditingToolsAdapter.OnItemSelected
+import com.lads.superzoomkotlin.tools.ToolType
 import ja.burhanrashid52.photoeditor.*
 import ja.burhanrashid52.photoeditor.shape.ShapeBuilder
 import ja.burhanrashid52.photoeditor.shape.ShapeType
+import kotlinx.coroutines.launch
 import java.io.File
 import java.io.IOException
 
@@ -64,7 +66,7 @@ class EditImageActivity : BaseActivity(), OnPhotoEditorListener, View.OnClickLis
     private lateinit var mRootView: ConstraintLayout
     private val mConstraintSet = ConstraintSet()
     private var mIsFilterVisible = false
-    private var bitmap:Bitmap? = null
+    private var bitmap: Bitmap? = null
 
     @VisibleForTesting
     var mSaveImageUri: Uri? = null
@@ -302,30 +304,33 @@ class EditImageActivity : BaseActivity(), OnPhotoEditorListener, View.OnClickLis
                     error: String?,
                     uri: Uri?
                 ) {
-//                    lifecycleScope.launch {
-//                        if (created && filePath != null) {
-//                            val saveSettings = SaveSettings.Builder()
-//                                .setClearViewsEnabled(true)
-//                                .setTransparencyEnabled(true)
-//                                .build()
-//
-//                            val result = mPhotoEditor.saveAsFile(filePath, saveSettings)
-//
-//                            if (result is SaveFileResult.Success) {
-//                                mSaveFileHelper.notifyThatFileIsNowPubliclyAvailable(contentResolver)
-//                                hideLoading()
-//                                showSnackbar("Image Saved Successfully")
-//                                mSaveImageUri = uri
-//                                mPhotoEditorView.source.setImageURI(mSaveImageUri)
-//                            } else {
-//                                hideLoading()
-//                                showSnackbar("Failed to save Image")
-//                            }
-//                        } else {
-//                            hideLoading()
-//                            error?.let { showSnackbar(error) }
-//                        }
-//                    }
+                    lifecycleScope.launch {
+                        if (created && filePath != null) {
+                            val saveSettings = SaveSettings.Builder()
+                                .setClearViewsEnabled(true)
+                                .setTransparencyEnabled(true)
+                                .build()
+                            val result = mPhotoEditor.saveAsFile(filePath, saveSettings)
+
+                            if (result is SaveFileResult.Success) {
+
+                                mSaveFileHelper.notifyThatFileIsNowPubliclyAvailable(
+                                    contentResolver
+                                )
+                                hideLoading()
+                                showSnackbar("Image Saved Successfully")
+                                mSaveImageUri = uri
+                                mPhotoEditorView.source.setImageURI(mSaveImageUri)
+
+                            } else {
+                                hideLoading()
+                                showSnackbar("Failed to save Image")
+                            }
+                        } else {
+                            hideLoading()
+                            error?.let { showSnackbar(error) }
+                        }
+                    }
                 }
             })
         } else {

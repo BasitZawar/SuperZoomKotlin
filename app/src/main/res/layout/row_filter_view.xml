@@ -22,14 +22,14 @@
         android:id="@+id/txtFilterName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="#90000000"
         android:gravity="center"
         android:padding="4dp"
-        android:textColor="@android:color/white"
+        android:textColor="#9a9a9a"
         android:textSize="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/imgFilterView"
         app:layout_constraintEnd_toEndOf="@+id/imgFilterView"
         app:layout_constraintStart_toStartOf="@+id/imgFilterView"
         tools:text="@tools:sample/full_names" />
+<!--    android:background="#90000000"-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

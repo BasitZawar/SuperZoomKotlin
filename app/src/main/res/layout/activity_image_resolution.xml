@@ -6,6 +6,36 @@
     android:layout_height="match_parent"
     tools:context=".activities.ImageResolution">
 
+    <LinearLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingVertical="20dp"
+        app:layout_constraintBottom_toTopOf="@id/imgResolution"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imgArrowBack"
+            android:layout_width="50dp"
+            android:layout_height="25dp"
+            android:src="@drawable/ic_arrow_back" />
+
+        <TextView
+            android:id="@+id/txtSplash"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:singleLine="true"
+            android:layout_marginEnd="25dp"
+            android:text="Image Resolution"
+            android:textColor="@android:color/black"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
 
     <!--    <ja.burhanrashid52.photoeditor.PhotoEditorView-->
     <!--        android:id="@+id/imgResolution"-->
@@ -20,30 +50,29 @@
     <com.jsibbold.zoomage.ZoomageView
         android:id="@+id/imgResolution"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:zoomage_restrictBounds="true"
-        app:zoomage_animateOnReset="true"
-        app:zoomage_autoResetMode="UNDER"
-        app:zoomage_autoCenter="true"
-        app:zoomage_zoomable="true"
-        app:zoomage_translatable="true"
-        app:zoomage_minScale="0.6"
-        app:zoomage_maxScale="8"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintTop_toBottomOf="@id/appbar"
+        app:zoomage_animateOnReset="true"
+        app:zoomage_autoCenter="true"
+        app:zoomage_autoResetMode="UNDER"
+        app:zoomage_maxScale="8"
+        app:zoomage_minScale="0.6"
+        app:zoomage_restrictBounds="true"
+        app:zoomage_translatable="true"
+        app:zoomage_zoomable="true" />
 
 
-<!--    <com.jsibbold.zoomage.ZoomageView-->
-<!--        android:id="@+id/imgResolution"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:visibility="visible"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:photo_src="@drawable/blank_image" />-->
+    <!--    <com.jsibbold.zoomage.ZoomageView-->
+    <!--        android:id="@+id/imgResolution"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        android:visibility="visible"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        app:photo_src="@drawable/blank_image" />-->
 </androidx.constraintlayout.widget.ConstraintLayout>
