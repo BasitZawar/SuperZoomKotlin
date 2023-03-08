@@ -6,6 +6,8 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
+import android.view.MotionEvent
+import android.view.ScaleGestureDetector
 import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
@@ -14,18 +16,26 @@ import com.jsibbold.zoomage.ZoomageView
 import com.lads.superzoomkotlin.EditImageActivity
 import com.lads.superzoomkotlin.R
 import java.io.IOException
+import kotlin.math.max
+import kotlin.math.min
 
 
 class ImageResolution : AppCompatActivity(), View.OnClickListener {
     private var bitmap: Bitmap? = null
     private lateinit var imgResolution: ZoomageView
-    private var imgArrowBack: ImageView? = null
 
+    private lateinit var scaleGestureDetector: ScaleGestureDetector
+    private var scaleFactor = 1.0f
+
+    private var imgArrowBack: ImageView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_image_resolution)
+
+//        scaleGestureDetector = ScaleGestureDetector(this, ScaleListener())
+
 
         imgResolution = findViewById(R.id.imgResolution)
         imgArrowBack = findViewById(R.id.imgArrowBack)
@@ -61,14 +71,27 @@ class ImageResolution : AppCompatActivity(), View.OnClickListener {
             // for imageView
             imgResolution.setImageBitmap(bitmap)
         }
-
         imgResolution.setOnClickListener {
         }
     }
 
     override fun onClick(p0: View?) {
-
         Toast.makeText(this, "click", Toast.LENGTH_SHORT).show()
     }
 
+//    override fun dispatchTouchEvent(motionEvent: MotionEvent): Boolean {
+//        scaleGestureDetector.onTouchEvent(motionEvent)
+//        return true
+//    }
+
+    private inner class ScaleListener : ScaleGestureDetector.SimpleOnScaleGestureListener() {
+        override fun onScale(scaleGestureDetector: ScaleGestureDetector): Boolean {
+
+            scaleFactor *= scaleGestureDetector.scaleFactor
+            scaleFactor = max(0.1f, min(scaleFactor, 20.0f))
+            imgResolution.scaleX = scaleFactor
+            imgResolution.scaleY = scaleFactor
+            return true
+        }
+    }
 }
