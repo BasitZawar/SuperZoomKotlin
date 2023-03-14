@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Basit/Test Projects/Native/SuperZoomKotlin/app/src/main/res/layout/activity_edit_image.xml" value="0.25" />
+        <entry key="..\:/Basit/Test Projects/Native/SuperZoomKotlin/app/src/main/res/layout/activity_image_resolution.xml" value="0.25" />
         <entry key="..\:/Basit/Test Projects/Native/SuperZoomKotlin/app/src/main/res/layout/activity_luncher.xml" value="0.33" />
         <entry key="..\:/SuperZoomKotlin/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.1685" />
         <entry key="..\:/SuperZoomKotlin/app/src/main/res/drawable/ic_undo.xml" value="0.1685" />

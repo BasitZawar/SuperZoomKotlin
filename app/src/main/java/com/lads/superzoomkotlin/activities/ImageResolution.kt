@@ -23,7 +23,6 @@ import kotlin.math.min
 class ImageResolution : AppCompatActivity(), View.OnClickListener {
     private var bitmap: Bitmap? = null
     private lateinit var imgResolution: ZoomageView
-
     private lateinit var scaleGestureDetector: ScaleGestureDetector
     private var scaleFactor = 1.0f
 
@@ -34,7 +33,7 @@ class ImageResolution : AppCompatActivity(), View.OnClickListener {
 
         setContentView(R.layout.activity_image_resolution)
 
-//        scaleGestureDetector = ScaleGestureDetector(this, ScaleListener())
+        scaleGestureDetector = ScaleGestureDetector(this, ScaleListener())
 
 
         imgResolution = findViewById(R.id.imgResolution)
@@ -79,10 +78,10 @@ class ImageResolution : AppCompatActivity(), View.OnClickListener {
         Toast.makeText(this, "click", Toast.LENGTH_SHORT).show()
     }
 
-//    override fun dispatchTouchEvent(motionEvent: MotionEvent): Boolean {
-//        scaleGestureDetector.onTouchEvent(motionEvent)
-//        return true
-//    }
+    override fun dispatchTouchEvent(motionEvent: MotionEvent): Boolean {
+        scaleGestureDetector.onTouchEvent(motionEvent)
+        return true
+    }
 
     private inner class ScaleListener : ScaleGestureDetector.SimpleOnScaleGestureListener() {
         override fun onScale(scaleGestureDetector: ScaleGestureDetector): Boolean {

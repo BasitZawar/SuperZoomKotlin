@@ -145,7 +145,6 @@ class EditImageActivity : BaseActivity(), OnPhotoEditorListener, View.OnClickLis
         if (intent == null) {
             return
         }
-
         when (intent.action) {
             Intent.ACTION_EDIT, ACTION_NEXTGEN_EDIT -> {
                 try {
