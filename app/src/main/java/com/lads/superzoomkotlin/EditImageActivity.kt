@@ -356,7 +356,6 @@ class EditImageActivity : BaseActivity(), OnPhotoEditorListener, View.OnClickLis
                     val bitmap = MediaStore.Images.Media.getBitmap(
                         contentResolver, uri
                     )
-
                     mPhotoEditorView.source.setImageBitmap(bitmap)
                     Log.d(TAG, "onActivityResultPicked: $bitmap")
                 } catch (e: IOException) {
