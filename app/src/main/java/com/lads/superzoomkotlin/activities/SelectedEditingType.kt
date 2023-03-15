@@ -3,6 +3,7 @@ package com.lads.superzoomkotlin.activities
 import android.content.ContentValues.TAG
 import android.content.Intent
 import android.graphics.Bitmap
+import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
@@ -10,26 +11,33 @@ import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.lads.superzoomkotlin.EditImageActivity
 import com.lads.superzoomkotlin.R
+import com.lads.superzoomkotlin.databinding.ActivitySelectedEditingTypeBinding
 import java.io.IOException
 
 class SelectedEditingType : AppCompatActivity() {
+    private lateinit var binding: ActivitySelectedEditingTypeBinding
     private var bitmap: Bitmap? = null
     private var imgView: ImageView? = null
-    private var resolution: ImageView? = null
-    private var selectedImgFromGallery: ImageView? = null
-    private lateinit var btnArrowBack: ImageView
+//    private var selectedImgFromGallery: ImageView? = null
+//    private lateinit var btnArrowBack: ImageView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(com.lads.superzoomkotlin.R.layout.activity_selected_editing_type)
+        binding = ActivitySelectedEditingTypeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        imgView = findViewById(com.lads.superzoomkotlin.R.id.selectedImgFromGallery)
-        resolution = findViewById(com.lads.superzoomkotlin.R.id.resolution)
-        selectedImgFromGallery = findViewById(com.lads.superzoomkotlin.R.id.selectedImgFromGallery)
-        btnArrowBack = findViewById(R.id.btnArrowBack)
+        imgView = findViewById(R.id.selectedImgFromGallery)
 
-        btnArrowBack.setOnClickListener {
+        val gradientDrawable = GradientDrawable(
+            GradientDrawable.Orientation.TOP_BOTTOM,
+            intArrayOf(0xff6b06e0.toInt(), 0xffe13d1c.toInt())
+        )
+        gradientDrawable.shape = GradientDrawable.OVAL;
+
+        binding.resolution.background = gradientDrawable
+
+        binding.btnArrowBack.setOnClickListener {
             finish()
         }
 
@@ -37,13 +45,13 @@ class SelectedEditingType : AppCompatActivity() {
         var uri = intent.getStringExtra("pickedImage")
         bitmap = intent.getParcelableExtra<Bitmap>("capturedImage")
 
-        resolution?.setOnClickListener {
+        binding.resolution?.setOnClickListener {
             val intent = Intent(this, ImageResolution::class.java)
                 .putExtra("pickedImage", uri).putExtra("capturedImage", bitmap)
             startActivityForResult(intent, EditImageActivity.CAMERA_REQUEST)
         }
 
-        selectedImgFromGallery?.setOnClickListener {
+        binding.selectedImgFromGallery?.setOnClickListener {
             val intent = Intent(this, EditImageActivity::class.java)
                 .putExtra("pickedImage", uri).putExtra("capturedImage", bitmap)
             startActivityForResult(intent, EditImageActivity.CAMERA_REQUEST)

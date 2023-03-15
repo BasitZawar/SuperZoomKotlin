@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.jsibbold.zoomage.ZoomageView
 import com.lads.superzoomkotlin.EditImageActivity
 import com.lads.superzoomkotlin.R
+import com.lads.superzoomkotlin.databinding.ActivityImageResolutionBinding
 import java.io.IOException
 import kotlin.math.max
 import kotlin.math.min
@@ -22,23 +23,24 @@ import kotlin.math.min
 
 class ImageResolution : AppCompatActivity(), View.OnClickListener {
 
+    private lateinit var binding: ActivityImageResolutionBinding
     private var bitmap: Bitmap? = null
-    private lateinit var imgResolution: ZoomageView
     private lateinit var scaleGestureDetector: ScaleGestureDetector
     private var scaleFactor = 1.0f
-    private var imgArrowBack: ImageView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_image_resolution)
+        binding = ActivityImageResolutionBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         scaleGestureDetector = ScaleGestureDetector(this, ScaleListener())
 
 
-        imgResolution = findViewById(R.id.imgResolution)
-        imgArrowBack = findViewById(R.id.imgArrowBack)
+//        imgResolution = findViewById(R.id.imgResolution)
+//        imgArrowBack = findViewById(R.id.imgArrowBack)
 
-        imgArrowBack!!.setOnClickListener {
+
+        binding.imgArrowBack!!.setOnClickListener {
             finish()
         }
 //        Glide.with(this).load(R.drawable.ic_launcher_background).into(imgResolution)
@@ -58,7 +60,7 @@ class ImageResolution : AppCompatActivity(), View.OnClickListener {
                 //for PhotoEditorView
 //                imgResolution.source.setImageBitmap(bitmap)
                 //for imageView
-                imgResolution.setImageBitmap(bitmap)
+                binding.imgResolution.setImageBitmap(bitmap)
             } catch (e: IOException) {
                 e.printStackTrace()
             }
@@ -67,9 +69,9 @@ class ImageResolution : AppCompatActivity(), View.OnClickListener {
             // for PhotoEditorView
 //            imgResolution.source.setImageBitmap(bitmap)
             // for imageView
-            imgResolution.setImageBitmap(bitmap)
+            binding.imgResolution.setImageBitmap(bitmap)
         }
-        imgResolution.setOnClickListener {
+        binding.imgResolution.setOnClickListener {
         }
     }
 
@@ -87,8 +89,8 @@ class ImageResolution : AppCompatActivity(), View.OnClickListener {
 
             scaleFactor *= scaleGestureDetector.scaleFactor
             scaleFactor = max(0.1f, min(scaleFactor, 20.0f))
-            imgResolution.scaleX = scaleFactor
-            imgResolution.scaleY = scaleFactor
+            binding.imgResolution.scaleX = scaleFactor
+            binding.imgResolution.scaleY = scaleFactor
             return true
         }
     }

@@ -33,6 +33,7 @@ import androidx.transition.TransitionManager
 import com.burhanrashid52.photoediting.base.BaseActivity
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.lads.superzoomkotlin.StickerBSFragment.StickerListener
+import com.lads.superzoomkotlin.databinding.ActivityEditImageBinding
 import com.lads.superzoomkotlin.filters.FilterListener
 import com.lads.superzoomkotlin.filters.FilterViewAdapter
 import com.lads.superzoomkotlin.tools.EditingToolsAdapter
@@ -73,10 +74,12 @@ class EditImageActivity : BaseActivity(), OnPhotoEditorListener, View.OnClickLis
 
     private lateinit var mSaveFileHelper: FileSaveHelper
 
+    lateinit var binding: ActivityEditImageBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ActivityEditImageBinding.inflate(layoutInflater)
         makeFullScreen()
-        setContentView(R.layout.activity_edit_image)
+        setContentView(binding.root)
 
         var uri = intent.getStringExtra("pickedImage")
         bitmap = intent.getParcelableExtra<Bitmap>("capturedImage")
@@ -117,7 +120,6 @@ class EditImageActivity : BaseActivity(), OnPhotoEditorListener, View.OnClickLis
 //            .setDefaultTextTypeface(mTextRobotoTf)
 //            .setDefaultEmojiTypeface(mEmojiTypeFace)
             .build() // build photo editor sdk
-
         mPhotoEditor.setOnPhotoEditorListener(this)
 
         //Set Image Dynamically
@@ -174,26 +176,13 @@ class EditImageActivity : BaseActivity(), OnPhotoEditorListener, View.OnClickLis
         mRvFilters = findViewById(R.id.rvFilterView)
         mRootView = findViewById(R.id.rootView)
 
-        val imgUndo: ImageView = findViewById(R.id.imgUndo)
-        imgUndo.setOnClickListener(this)
-
-        val imgRedo: ImageView = findViewById(R.id.imgRedo)
-        imgRedo.setOnClickListener(this)
-
-        val imgCamera: ImageView = findViewById(R.id.imgCamera)
-        imgCamera.setOnClickListener(this)
-
-        val imgGallery: ImageView = findViewById(R.id.imgGallery)
-        imgGallery.setOnClickListener(this)
-
-        val imgSave: ImageView = findViewById(R.id.imgSave)
-        imgSave.setOnClickListener(this)
-
-        val imgClose: ImageView = findViewById(R.id.imgClose)
-        imgClose.setOnClickListener(this)
-
-        val imgShare: ImageView = findViewById(R.id.imgShare)
-        imgShare.setOnClickListener(this)
+        binding.imgUndo.setOnClickListener(this)
+        binding.imgRedo.setOnClickListener(this)
+        binding.imgCamera.setOnClickListener(this)
+        binding.imgGallery.setOnClickListener(this)
+        binding.imgSave.setOnClickListener(this)
+        binding.imgClose.setOnClickListener(this)
+        binding.imgShare.setOnClickListener(this)
     }
 
     override fun onEditTextChangeListener(rootView: View?, text: String?, colorCode: Int) {

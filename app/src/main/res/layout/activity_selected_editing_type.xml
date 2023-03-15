@@ -23,8 +23,8 @@
 
     <ImageView
         android:id="@+id/resolution"
-        android:layout_width="130dp"
-        android:layout_height="130dp"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
         android:layout_below="@id/appbar"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
@@ -50,8 +50,8 @@
 
     <ImageView
         android:id="@+id/selectedImgFromGallery"
-        android:layout_width="130dp"
-        android:layout_height="130dp"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
         android:layout_below="@id/tv_resolution"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="70dp"
