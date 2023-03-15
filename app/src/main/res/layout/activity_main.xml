@@ -30,10 +30,10 @@
 
 
     <ImageButton
-        android:layout_below="@id/appbar"
         android:id="@+id/imgCamera"
         android:layout_width="130dp"
         android:layout_height="130dp"
+        android:layout_below="@id/appbar"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:background="@drawable/bg_upload_shape"

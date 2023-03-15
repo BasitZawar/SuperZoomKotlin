@@ -3,9 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Basit/Test Projects/Native/SuperZoomKotlin/app/src/main/res/drawable/bg_upload_shape.xml" value="0.1755" />
+        <entry key="..\:/Basit/Test Projects/Native/SuperZoomKotlin/app/src/main/res/drawable/gradient_shape.xml" value="0.1755" />
         <entry key="..\:/Basit/Test Projects/Native/SuperZoomKotlin/app/src/main/res/layout/activity_edit_image.xml" value="0.25" />
         <entry key="..\:/Basit/Test Projects/Native/SuperZoomKotlin/app/src/main/res/layout/activity_image_resolution.xml" value="0.25" />
         <entry key="..\:/Basit/Test Projects/Native/SuperZoomKotlin/app/src/main/res/layout/activity_luncher.xml" value="0.33" />
+        <entry key="..\:/Basit/Test Projects/Native/SuperZoomKotlin/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/SuperZoomKotlin/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.1685" />
         <entry key="..\:/SuperZoomKotlin/app/src/main/res/drawable/ic_undo.xml" value="0.1685" />
         <entry key="..\:/SuperZoomKotlin/app/src/main/res/font/roboto_medium.xml" value="0.31203703703703706" />

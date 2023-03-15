@@ -21,16 +21,15 @@ import kotlin.math.min
 
 
 class ImageResolution : AppCompatActivity(), View.OnClickListener {
+
     private var bitmap: Bitmap? = null
     private lateinit var imgResolution: ZoomageView
     private lateinit var scaleGestureDetector: ScaleGestureDetector
     private var scaleFactor = 1.0f
-
     private var imgArrowBack: ImageView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.activity_image_resolution)
 
         scaleGestureDetector = ScaleGestureDetector(this, ScaleListener())

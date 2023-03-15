@@ -2,13 +2,14 @@ package com.lads.superzoomkotlin.activities
 
 import android.content.Intent
 import android.graphics.Bitmap
+import android.graphics.Color
+import android.graphics.drawable.GradientDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
 import android.view.View
 import android.widget.ImageButton
-import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.lads.superzoomkotlin.EditImageActivity
 import com.lads.superzoomkotlin.R
@@ -26,6 +27,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         val imgGallery: ImageButton = findViewById(R.id.imgGallery)
         imgGallery.setOnClickListener(this)
+
+        val gradientDrawable = GradientDrawable(
+            GradientDrawable.Orientation.TOP_BOTTOM, intArrayOf(0xff6b06e0.toInt(),0xffe13d1c.toInt())
+
+        )
+        gradientDrawable.setShape(GradientDrawable.OVAL);
+
+        imgCamera.background = gradientDrawable
     }
 
     override fun onClick(p0: View?) {
